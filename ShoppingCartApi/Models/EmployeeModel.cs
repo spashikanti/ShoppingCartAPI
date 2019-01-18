@@ -22,5 +22,6 @@ namespace ShoppingCartApi.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "BCC")]
         public string EmailBCC { get; set; }
+
     }
 }
