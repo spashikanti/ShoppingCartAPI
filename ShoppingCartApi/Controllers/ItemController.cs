@@ -16,15 +16,16 @@ namespace ShoppingCartApi.Controllers
     public class ItemController : Controller
     {
         private readonly IDocumentDBRepository<ItemModel> Respository;
+        private readonly string collectionId = "ItemDetails";
         public ItemController(IDocumentDBRepository<ItemModel> Respository)
         {
             this.Respository = Respository;
         }
 
         [ActionName("Index")]
-        public  IActionResult Index()
+        public IActionResult Index()
         {
-            var items = Respository.GetItemsAsync(d => !d.Completed);
+            var items = Respository.GetItemsAsync(d => !d.Completed, collectionId);
             return Ok(items);
             //return View(items);
         }
@@ -45,7 +46,7 @@ namespace ShoppingCartApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                await Respository.CreateItemAsync(item);
+                await Respository.CreateItemAsync(item, "Pass collectionID");
                 return RedirectToAction("Index");
             }
 
@@ -59,7 +60,7 @@ namespace ShoppingCartApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                await Respository.UpdateItemAsync(item.Id, item);
+                await Respository.UpdateItemAsync(item.Id, item, collectionId);
                 return RedirectToAction("Index");
             }
 
@@ -67,14 +68,14 @@ namespace ShoppingCartApi.Controllers
         }
 
         [ActionName("Edit")]
-        public async Task<ActionResult> EditAsync(string id)
+        public async Task<ActionResult> EditAsync(string id, string collectionId)
         {
             if (id == null)
             {
                 return BadRequest();
             }
 
-            ItemModel item = await Respository.GetItemAsync(id);
+            ItemModel item = await Respository.GetItemAsync(id, collectionId);
             if (item == null)
             {
                 return NotFound();
@@ -84,14 +85,14 @@ namespace ShoppingCartApi.Controllers
         }
 
         [ActionName("Delete")]
-        public async Task<ActionResult> DeleteAsync(string id)
+        public async Task<ActionResult> DeleteAsync(string id, string collectionId)
         {
             if (id == null)
             {
                 return BadRequest();
             }
 
-            ItemModel item = await Respository.GetItemAsync(id);
+            ItemModel item = await Respository.GetItemAsync(id, collectionId);
             if (item == null)
             {
                 return NotFound();
@@ -105,14 +106,14 @@ namespace ShoppingCartApi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmedAsync([Bind("Id")] string id)
         {
-            await Respository.DeleteItemAsync(id);
+            await Respository.DeleteItemAsync(id, collectionId);
             return RedirectToAction("Index");
         }
 
         [ActionName("Details")]
-        public async Task<ActionResult> DetailsAsync(string id)
+        public async Task<ActionResult> DetailsAsync(string id, string collectionId)
         {
-            ItemModel item = await Respository.GetItemAsync(id);
+            ItemModel item = await Respository.GetItemAsync(id, collectionId);
             return View(item);
         }
     }

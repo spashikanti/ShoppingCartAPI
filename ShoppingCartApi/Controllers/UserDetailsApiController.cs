@@ -13,7 +13,7 @@ namespace ShoppingCartApi.Controllers
         //IDbCollectionOperationsRepository<UserDetailsModel, string> _repo;
 
         private readonly IDocumentDBRepository<UserDetailsModel> _repo;
-        private readonly string collId = "UserDetails";
+        private readonly string collectionId = "UserDetails";
         public UserDetailsApiController(IDocumentDBRepository<UserDetailsModel> r)
         {
             _repo = r;
@@ -21,13 +21,13 @@ namespace ShoppingCartApi.Controllers
         [Route("User/All")]
         public IActionResult Get()
         {
-            var users = _repo.GetItemsAsync(collId);
+            var users = _repo.GetItemsAsync(collectionId);
             return Ok(users);
         }
         [Route("User/{id}")]
         public IActionResult Get(string id)
         {
-            var user = _repo.GetItemAsync(id).Result;
+            var user = _repo.GetItemAsync(id, collectionId).Result;
             return Ok(user);
         }
         [Route("User/Create")]
@@ -37,7 +37,7 @@ namespace ShoppingCartApi.Controllers
             per.modifiedDate = System.DateTime.Now.ToShortDateString();
             per.createdBy = HttpContext.User.Identity.Name;
             per.modifiedBy = HttpContext.User.Identity.Name;
-            var user = _repo.CreateItemAsync(per).Result;
+            var user = _repo.CreateItemAsync(per, collectionId).Result;
             return Ok(user);
         }
         //[Route("User/Update/{id}")]

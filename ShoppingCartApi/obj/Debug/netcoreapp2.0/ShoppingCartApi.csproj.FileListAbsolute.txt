@@ -24,3 +24,15 @@ D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\shoppingcartapi\ShoppingCartApi\S
 D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\shoppingcartapi\ShoppingCartApi\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.AssemblyInfo.cs
 D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\shoppingcartapi\ShoppingCartApi\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.dll
 D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\shoppingcartapi\ShoppingCartApi\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.pdb
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\bin\Debug\netcoreapp2.0\Microsoft.Azure.Documents.ServiceInterop.dll
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\bin\Debug\netcoreapp2.0\DocumentDB.Spatial.Sql.dll
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\bin\Debug\netcoreapp2.0\ShoppingCartApi.deps.json
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\bin\Debug\netcoreapp2.0\ShoppingCartApi.runtimeconfig.json
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\bin\Debug\netcoreapp2.0\ShoppingCartApi.runtimeconfig.dev.json
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\bin\Debug\netcoreapp2.0\ShoppingCartApi.dll
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\bin\Debug\netcoreapp2.0\ShoppingCartApi.pdb
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.csproj.CoreCompileInputs.cache
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.AssemblyInfoInputs.cache
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.AssemblyInfo.cs
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.dll
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.pdb

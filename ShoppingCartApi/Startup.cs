@@ -26,6 +26,7 @@ namespace ShoppingCartApi
             // services.AddSingleton(typeof(IDbCollectionOperationsRepository), typeof(DbCollectionOperationsRepository));
             // services.AddSingleton(typeof(IDocumentDBRepository<T,string>), typeof(DocumentDBRepository));
             services.AddSingleton<IDocumentDBRepository<UserDetailsModel>>(new DocumentDBRepository<UserDetailsModel>());
+            services.AddSingleton<IDocumentDBRepository<ProductModel>>(new DocumentDBRepository<ProductModel>());
             services.AddSingleton<IDocumentDBRepository<ItemModel>>(new DocumentDBRepository<ItemModel>());
             services.AddSingleton(typeof(IDbCollectionOperationsRepository<UserDetailsModel, string>), typeof(DbCollectionOperationsRepository));
             services.AddCors(options =>

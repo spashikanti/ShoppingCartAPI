@@ -18,11 +18,11 @@ namespace ShoppingCartApi.Repositories
         //private readonly string CollectionId = "Items";
         //private DocumentClient client;
 
-        private  readonly string Endpoint = "https://shoppingdbpcdp2018.documents.azure.com:443/";
-        private  readonly string Key = "MlaBEKnQnXxiUt81FyldpX4x2HhnoxYkRHmUkdisxL9Ivb1dfGZ1PQ86uDMY7x1wH3m1354HkEyk4VAXkTGdAA==";
-        private  readonly string DatabaseId = "shoppingcartDB";
-        private  readonly string CollectionId = "UserDetails";
-        private  DocumentClient client;
+        private readonly string Endpoint = "https://shoppingdbpcdp2018.documents.azure.com:443/";
+        private readonly string Key = "MlaBEKnQnXxiUt81FyldpX4x2HhnoxYkRHmUkdisxL9Ivb1dfGZ1PQ86uDMY7x1wH3m1354HkEyk4VAXkTGdAA==";
+        private readonly string DatabaseId = "shoppingcartDB";
+        private readonly string CollectionId = "UserDetails";
+        private DocumentClient client;
 
         public DocumentDBRepository()
         {
@@ -31,11 +31,11 @@ namespace ShoppingCartApi.Repositories
             CreateCollectionIfNotExistsAsync().Wait();
         }
 
-        public async Task<T> GetItemAsync(string id)
+        public async Task<T> GetItemAsync(string id, string collectionId)
         {
             try
             {
-                Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+                Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, collectionId, id));
                 return (T)(dynamic)document;
             }
             catch (DocumentClientException e)
@@ -51,10 +51,10 @@ namespace ShoppingCartApi.Repositories
             }
         }
 
-        public async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate, string collectionId)
         {
             IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
-                UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),
+                UriFactory.CreateDocumentCollectionUri(DatabaseId, collectionId),
                 new FeedOptions { MaxItemCount = -1 })
                 .Where(predicate)
                 .AsDocumentQuery();
@@ -67,10 +67,10 @@ namespace ShoppingCartApi.Repositories
 
             return results;
         }
-        public async Task<IEnumerable<T>> GetItemsAsync(string collID)
+        public async Task<IEnumerable<T>> GetItemsAsync(string collectionId)
         {
             IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
-                UriFactory.CreateDocumentCollectionUri(DatabaseId, collID),
+                UriFactory.CreateDocumentCollectionUri(DatabaseId, collectionId),
                 new FeedOptions { MaxItemCount = -1 })
                 .AsDocumentQuery();
 
@@ -83,19 +83,19 @@ namespace ShoppingCartApi.Repositories
             return results;
         }
 
-        public async Task<Document> CreateItemAsync(T item)
+        public async Task<Document> CreateItemAsync(T item, string collectionId)
         {
-            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
+            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, collectionId), item);
         }
 
-        public async Task<Document> UpdateItemAsync(string id, T item)
+        public async Task<Document> UpdateItemAsync(string id, T item, string collectionId)
         {
-            return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
+            return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, collectionId, id), item);
         }
 
-        public async Task DeleteItemAsync(string id)
+        public async Task DeleteItemAsync(string id, string collectionId)
         {
-            await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+            await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, collectionId, id));
         }
 
         private async Task CreateDatabaseIfNotExistsAsync()

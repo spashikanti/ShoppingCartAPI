@@ -14053,11 +14053,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Data\\Office\\CA\\PCDP\\2018-19\\RJ_ShoppingKart\\shoppingcartapi\\ShoppingCartApi\\ShoppingCartApi\\ShoppingCartApi.csproj",
+      "projectUniqueName": "D:\\Data\\Office\\CA\\PCDP\\2018-19\\RJ_ShoppingKart\\API\\ShoppingCartAPI\\ShoppingCartApi\\ShoppingCartApi.csproj",
       "projectName": "ShoppingCartApi",
-      "projectPath": "D:\\Data\\Office\\CA\\PCDP\\2018-19\\RJ_ShoppingKart\\shoppingcartapi\\ShoppingCartApi\\ShoppingCartApi\\ShoppingCartApi.csproj",
+      "projectPath": "D:\\Data\\Office\\CA\\PCDP\\2018-19\\RJ_ShoppingKart\\API\\ShoppingCartAPI\\ShoppingCartApi\\ShoppingCartApi.csproj",
       "packagesPath": "C:\\Users\\spashikanti\\.nuget\\packages\\",
-      "outputPath": "D:\\Data\\Office\\CA\\PCDP\\2018-19\\RJ_ShoppingKart\\shoppingcartapi\\ShoppingCartApi\\ShoppingCartApi\\obj\\",
+      "outputPath": "D:\\Data\\Office\\CA\\PCDP\\2018-19\\RJ_ShoppingKart\\API\\ShoppingCartAPI\\ShoppingCartApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
