@@ -12,6 +12,7 @@ namespace ShoppingCartApi.Controllers
     {
         //IDbCollectionOperationsRepository<UserDetailsModel, string> _repo;
 
+
         private readonly IDocumentDBRepository<UserDetailsModel> _repo;
         private readonly string collectionId = "UserDetails";
         public UserDetailsApiController(IDocumentDBRepository<UserDetailsModel> r)
