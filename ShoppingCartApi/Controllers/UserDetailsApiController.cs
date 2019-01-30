@@ -12,6 +12,7 @@ namespace ShoppingCartApi.Controllers
     {
         //IDbCollectionOperationsRepository<UserDetailsModel, string> _repo;
 
+
         private readonly IDocumentDBRepository<UserDetailsModel> _repo;
         private readonly string collectionId = "UserDetails";
         public UserDetailsApiController(IDocumentDBRepository<UserDetailsModel> r)
@@ -21,7 +22,7 @@ namespace ShoppingCartApi.Controllers
         [Route("User/All")]
         public IActionResult Get()
         {
-            var users = _repo.GetItemsAsync(collectionId);
+            var users = _repo.GetItemsAsync(collectionId).Result;
             return Ok(users);
         }
         [Route("User/{id}")]
@@ -30,6 +31,19 @@ namespace ShoppingCartApi.Controllers
             var user = _repo.GetItemAsync(id, collectionId).Result;
             return Ok(user);
         }
+
+        //[Route("Login")]
+        //public IActionResult Login([FromBody]UserDetailsModel per)
+        //{
+        //    var user =_repo.GetItemsAsync(per.emailID,per.password)
+        //    per.createdDate = System.DateTime.Now.ToShortDateString();
+        //    per.modifiedDate = System.DateTime.Now.ToShortDateString();
+        //    per.createdBy = HttpContext.User.Identity.Name;
+        //    per.modifiedBy = HttpContext.User.Identity.Name;
+        //    var user = _repo.CreateItemAsync(per, collectionId).Result;
+        //    return Ok(user);
+        //}
+
         [Route("User/Create")]
         public IActionResult Post([FromBody]UserDetailsModel per)
         {
@@ -40,17 +54,17 @@ namespace ShoppingCartApi.Controllers
             var user = _repo.CreateItemAsync(per, collectionId).Result;
             return Ok(user);
         }
-        //[Route("User/Update/{id}")]
-        //public IActionResult Put(string id, [FromBody]UserDetailsModel per)
-        //{
-        //    var user = _repo.UpdateDocumentFromCollection(id, per);
-        //    return Ok(user.Result);
-        //}
-        //[Route("User/Delete/{id}")]
-        //public IActionResult Delete(string id)
-        //{
-        //    var res = _repo.DeleteDocumentFromCollectionAsync(id);
-        //    return Ok(res.Status);
-        //}
+        [Route("User/Update/{id}")]
+        public IActionResult Put(string id, [FromBody]UserDetailsModel per)
+        {
+            var user = _repo.UpdateItemAsync(id, per, collectionId);
+            return Ok(user.Result);
+        }
+        [Route("User/Delete/{id}")]
+        public IActionResult Delete(string id)
+        {
+            var res = _repo.DeleteItemAsync(id, collectionId);
+            return Ok(res.Status);
+        }
     }
 }
