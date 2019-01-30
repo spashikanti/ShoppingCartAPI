@@ -17,7 +17,9 @@ namespace ShoppingCartApi.Models
         [JsonProperty(PropertyName = "specification")]
         public List<Specification> Specification { get; set; }
         [JsonProperty(PropertyName = "image")]
-        public List<Images> Image { get; set; }
+        public string Image { get; set; }
+        [JsonProperty(PropertyName = "price")]
+        public double Price { get; set; }
     }
     public class Specification
     {
