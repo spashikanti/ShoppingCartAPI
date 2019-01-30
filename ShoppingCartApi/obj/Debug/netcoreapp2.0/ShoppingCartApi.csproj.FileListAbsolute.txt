@@ -36,3 +36,4 @@ D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartA
 D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.AssemblyInfo.cs
 D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.dll
 D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.pdb
+D:\Data\Office\CA\PCDP\2018-19\RJ_ShoppingKart\API\ShoppingCartAPI\ShoppingCartApi\obj\Debug\netcoreapp2.0\ShoppingCartApi.csprojAssemblyReference.cache

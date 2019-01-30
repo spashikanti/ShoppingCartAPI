@@ -43,8 +43,20 @@ namespace ShoppingCartApi.Controllers
             model.modifiedDate = System.DateTime.Now.ToShortDateString();
             model.createdBy = HttpContext.User.Identity.Name;
             model.modifiedBy = HttpContext.User.Identity.Name;
-            var user = _repo.CreateItemAsync(model, collectionId).Result;
-            return Ok(user);
+            var product = _repo.CreateItemAsync(model, collectionId).Result;
+            return Ok(product);
+        }
+        [Route("UpdateProduct/{id}")]
+        public IActionResult Put(string id, [FromBody]ProductModel per)
+        {
+            var product = _repo.UpdateItemAsync(id, per, collectionId);
+            return Ok(product.Result);
+        }
+        [Route("DeleteProduct/{id}")]
+        public IActionResult Delete(string id)
+        {
+            var res = _repo.DeleteItemAsync(id, collectionId);
+            return Ok(res.Status);
         }
     }
 }
