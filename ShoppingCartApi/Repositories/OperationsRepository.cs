@@ -29,8 +29,8 @@ namespace ShoppingCartApi.Repositories
     public class DbCollectionOperationsRepository : IDbCollectionOperationsRepository<UserDetailsModel, string>
     {
         #region The DocumentDB Endpoint, Key, DatabaseId and CollectionId declaration
-        private static readonly string Endpoint = "https://shoppingdbpcdp2018.documents.azure.com:443/";
-        private static readonly string Key = "MlaBEKnQnXxiUt81FyldpX4x2HhnoxYkRHmUkdisxL9Ivb1dfGZ1PQ86uDMY7x1wH3m1354HkEyk4VAXkTGdAA==";
+        private static readonly string Endpoint = "";
+        private static readonly string Key = "";
         private static readonly string DatabaseId = "shoppingcartDB";
         private static readonly string CollectionId = "UserDetails";
         private static DocumentClient docClient;
